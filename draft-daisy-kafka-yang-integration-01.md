@@ -44,7 +44,7 @@ The pluggable Confluent [Schema Registry] needs to be extended to support YANG [
 In order to support YANG [RFC7950] the following items need to be defined and developed
 
 * Which [Confluent Compatibility Checks] defined in section 11 [RFC7950] and sectin 10 of [RFC6020] should be performed for different [Confluent Compatibility Types]
-* How YANG <yang-version statement>, <namespace statement>, <prefix statement> and the <revision-statements> are preserved and <revision-statements> possibily being used in the [Confluent Compatibility Checks]
+* How YANG yang-version statement, namespace statement, prefix statement and the revision-statements are preserved and revision-statements possibily being used in the [Confluent Compatibility Checks]
 
 
 ## YANG Kafka producer/consumer
