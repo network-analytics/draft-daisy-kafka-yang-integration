@@ -4,7 +4,7 @@ With the introduction of YANG [RFC7950] as a data modelling language in the netw
 
 A message broker enables real time data exchange among different Data Mesh domains. A schema registry ensure that the producer and consumer can learn from each other the schema and version for each message outband. Confluent [Apache Kafka] message broker supports custom data serialization. Since April 2020, Confluent extended their [Schema Registry] to be pluggable. Supporting besides AVRO (JSON and binary) also JSON and Protobuf natively. Described in [SR Blog Post], [SR Protobuf Provider Plugin], [Protobuf Serializer/Derializer], [Protobuf Serde for Kafka Streams] and [Protobuf Connect Converter].
 
-With [draft-ietf-netconf-udp-notif] and [draft-ietf-netconf-https-notif] two proposed standards at the NETCONF working group which supports configured YANG push subscriptions are in progress. [draft-ietf-netconf-https-notif] supports YANG push notification messages according to [RFC8639] and application/yang-data+json and application/yang-data+xml [Media Types] for encoding. [draft-ietf-netconf-https-notif], driven by Unyte, supports YANG push notification messages according to [RFC8641] and application/yang-data+json, application/yang-data+xml and application/yang-data+cbor for encoding.
+With [draft-ietf-netconf-udp-notif] and [draft-ietf-netconf-https-notif] two proposed standards at the NETCONF working group which supports configured YANG push subscriptions are in progress. [draft-ietf-netconf-https-notif] supports YANG push notification messages according to [RFC8639] and application/yang-data+json and application/yang-data+xml [Media Types] for encoding. [draft-ietf-netconf-udp-notif], driven by Unyte, supports YANG push notification messages according to [RFC8641] and application/yang-data+json, application/yang-data+xml and application/yang-data+cbor for encoding.
 
 The YANG push notification message described in [RFC8641] contains a subscription id for each message as meta data. Referencing the subscribed xpath, a subsection of a YANG model. The YANG subscription id is being defined when a new xpath is subscribed to. Without this meta data, the YANG push receiver (YANG push data-collection) is unable to determine which YANG model matches the JSON/XML/CBOR encoded message today.
 
@@ -19,14 +19,14 @@ In this document we describe how Confluent's [Apache Kafka] data serialization a
 
 ## Status of this memo
 
-Requesting initial feedback from all Christoph Schubert, Senad Jukic, Paolo Lucente, Benoit Claise, Joe Clark, Pierre Francois, Alex Huang-Feng, Eric Tschetter, Ahmed Elhassany, Marco Tollini, Uwe Storbeck and Zhuoyao Lin.
+Requesting initial feedback from all Christoph Schubert, Senad Jukic, Paolo Lucente, Benoit Claise, Joe Clark, Pierre Francois, Alex Huang Feng, Eric Tschetter, Ahmed Elhassany, Marco Tollini, Uwe Storbeck and Zhuoyao Lin.
 
 
 ## YANG push receiver
 
 The [pmacct] YANG push receiver needs to be extended to read
 
-* From YANG push notification header, the YANG xpath and version
+* From YANG push notification header, the observation domain id, the YANG xpath and the version
 * From YANG push notification header, the subscription id
 * From the JSON payload, the sensor-path meta data
 
@@ -43,7 +43,7 @@ The pluggable Confluent [Schema Registry] needs to be extended to support YANG [
 
 In order to support YANG [RFC7950] the following items need to be defined and developed
 
-* Which [Confluent Compatibility Checks] defined in section 11 [RFC7950] and sectin 10 of [RFC6020] should be performed for different [Confluent Compatibility Types]
+* Which [Confluent Compatibility Checks] defined in section 11 [RFC7950] and section 10 of [RFC6020] should be performed for different [Confluent Compatibility Types]
 * How YANG yang-version statement, namespace statement, prefix statement and the revision-statements are preserved and revision-statements possibily being used in the [Confluent Compatibility Checks]
 
 
@@ -61,7 +61,7 @@ The YANG push subscription process for a network node needs to be extended with 
 
 ## YANG Times Series Data Base Ingestion
 
-The schema from the schema registry is being used to define the times series database schema and the ingestion rule for the operational metrics. The time when the message was being produced by the YANG publisher can be optionally obtained by the <eventTime> as defined in section 4 of [RFC5277]. The subscription id and in the future also the x-path and version can be obtained from the YANG push schema specified in section 3.7 and figure 9 under section 4.1 of [RFC8641].
+The schema from the schema registry is being used to define the times series database schema and the ingestion rule for the operational metrics. The time when the message was being produced by the YANG publisher can be optionally obtained by the <eventTime> as defined in section 4 of [RFC5277]. The subscription id and in the future also the observation domain id, the x-path and the version can be obtained from the YANG push schema specified in section 3.7 and figure 9 under section 4.1 of [RFC8641].
 
 
 ### Normative References
