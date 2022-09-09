@@ -6,9 +6,9 @@ A message broker enables real time data exchange among different Data Mesh domai
 
 With [draft-ietf-netconf-udp-notif] and [draft-ietf-netconf-https-notif] two proposed standards at the NETCONF working group which supports configured YANG push subscriptions are in progress. [draft-ietf-netconf-https-notif] supports YANG push notification messages according to [RFC8639] and application/yang-data+json and application/yang-data+xml [Media Types] for encoding. [draft-ietf-netconf-https-notif], driven by Unyte, supports YANG push notification messages according to [RFC8641] and application/yang-data+json, application/yang-data+xml and application/yang-data+cbor for encoding.
 
-The YANG push notification message described in [RFC8641] contains a subscription id for each message as meta data. Referencing the subscribed xpath, a subsection of a YANG model. The YANG subscription id is being defined when a new xpath is subscribed to. Without this meta data, the YANG push receiver (YANG push data-collection) is unable to determine which YANG model matches the JSON/XML/CBOR encoded message today.
+The YANG push notification message described in [RFC8641] contains a subscription id for each message as meta data. Referencing the subscribed XPath, a subsection of a YANG module. The YANG subscription id is being defined when a new XPath is subscribed to. Without this meta data, the YANG push receiver (YANG push data-collection) is unable to determine which YANG module matches the JSON/XML/CBOR encoded message today.
 
-With [draft-ietf-netmod-yang-versioning-reqs] YANG versioning requirements have been defined and with [draft-ietf-netmod-yang-module-versioning] a YANG versioning handling has been proposed. This needs to be carried on to YANG push into the notification header [YANG xpath and version notification header] and also into the YANG push subscription [RFC8641].
+With [draft-ietf-netmod-yang-versioning-reqs] YANG versioning requirements have been defined and with [draft-ietf-netmod-yang-module-versioning] a YANG versioning handling has been proposed. This needs to be carried on to YANG push into the notification header [YANG XPath and version notification header] and also into the YANG push subscription [RFC8641].
 
 An [Apache Kafka] topic supports multiple subjects. Each subject maps to a dedicated schema id in the schema registry [Schema Registry Overview]. A YANG push receiver IPv4/6 address and L4 port maps 1:1 to an Apache Kafka topic.
 
@@ -19,22 +19,22 @@ In this document we describe how Confluent's [Apache Kafka] data serialization a
 
 ## Status of this memo
 
-Requesting initial feedback from all Christoph Schubert, Senad Jukic, Paolo Lucente, Benoit Claise, Joe Clark, Pierre Francois, Alex Huang-Feng, Eric Tschetter, Ahmed Elhassany, Marco Tollini, Uwe Storbeck and Zhuoyao Lin.
+Requesting initial feedback from all Christoph Schubert, Senad Jukic, Paolo Lucente, Benoit Claise, Joe Clarke, Pierre Francois, Alex Huang-Feng, Eric Tschetter, Ahmed Elhassany, Marco Tollini, Uwe Storbeck and Zhuoyao Lin.
 
 
 ## YANG push receiver
 
 The [pmacct] YANG push receiver needs to be extended to read
 
-* From YANG push notification header, the YANG xpath and version
+* From YANG push notification header, the YANG XPath and version
 * From YANG push notification header, the subscription id
 * From the JSON payload, the sensor-path meta data
 
-To determine which YANG model and version for the JSON/CBOR payload in the YANG push notification message. 
+To determine which YANG module and version for the JSON/CBOR payload in the YANG push notification message. 
 
-If for that YANG model and version the Confluent schema ID is not cached yet, then a <get-schema> NETCONF request as defined in section 3.1 of [RFC6022] needs to be performed to the IPv4/6 address where the YANG push message is being originated from to obtain the YANG schema. Once obtained, the YANG schema needs to be posted through a REST API to the Confluent Schema Registry [Schema Registry] and the Confluent Schema ID in return needs to be used for Kafka serialization with [libserdes].
+If for that YANG module and version the Confluent schema ID is not cached yet, then a <get-schema> NETCONF request as defined in section 3.1 of [RFC6022] needs to be performed to the IPv4/6 address where the YANG push message is being originated from to obtain the YANG schema. Once obtained, the YANG schema needs to be posted through a REST API to the Confluent Schema Registry [Schema Registry] and the Confluent Schema ID in return needs to be used for Kafka serialization with [libserdes].
 
-At present it is unclear, when CBOR encoding is performed at the YANG push publisher, wherever the notification message described in RFC 8641 is being encoded in CBOR or remain JSON encoded. When CBOR encoding is performed at YANG push publisher and the notification message would be encoded in CBOR as well, the YANG push receiver would need to deserialize the message to determine the YANG xpath and version. For this purpose, the [libcbor] library could be used.
+At present it is unclear, when CBOR encoding is performed at the YANG push publisher, wherever the notification message described in RFC 8641 is being encoded in CBOR or remain JSON encoded. When CBOR encoding is performed at YANG push publisher and the notification message would be encoded in CBOR as well, the YANG push receiver would need to deserialize the message to determine the YANG XPath and version. For this purpose, the [libcbor] library could be used.
 
 
 ## YANG schema registry
@@ -43,7 +43,7 @@ The pluggable Confluent [Schema Registry] needs to be extended to support YANG [
 
 In order to support YANG [RFC7950] the following items need to be defined and developed
 
-* Which [Confluent Compatibility Checks] defined in section 11 [RFC7950] and sectin 10 of [RFC6020] should be performed for different [Confluent Compatibility Types]
+* Which [Confluent Compatibility Checks] defined in section 11 [RFC7950] should be performed for different [Confluent Compatibility Types]
 * How YANG yang-version statement, namespace statement, prefix statement and the revision-statements are preserved and revision-statements possibily being used in the [Confluent Compatibility Checks]
 
 
@@ -56,12 +56,12 @@ The changes should be developed first to the native JAVA Kafka producer/consumer
 
 ## YANG push subscription
 
-The YANG push subscription process for a network node needs to be extended with the YANG version. During the subscription process the subscription id is obtained for each xpath and version and all stored in a mapping file for use at the YANG push receiver when YANG xpath and version is not present in the YANG push notification header yet.
+The YANG push subscription process for a network node needs to be extended with the YANG version. During the subscription process the subscription id is obtained for each XPath and version and all stored in a mapping file for use at the YANG push receiver when YANG XPath and version is not present in the YANG push notification header yet.
 
 
 ## YANG Times Series Data Base Ingestion
 
-The schema from the schema registry is being used to define the times series database schema and the ingestion rule for the operational metrics. The time when the message was being produced by the YANG publisher can be optionally obtained by the <eventTime> as defined in section 4 of [RFC5277]. The subscription id and in the future also the x-path and version can be obtained from the YANG push schema specified in section 3.7 and figure 9 under section 4.1 of [RFC8641].
+The schema from the schema registry is being used to define the times series database schema and the ingestion rule for the operational metrics. The time when the message was being produced by the YANG publisher can be optionally obtained by the <eventTime> as defined in section 4 of [RFC5277]. The subscription id and in the future also the observation domain id, the XPath and the version can be obtained from the YANG push schema specified in section 3.7 and figure 9 under section 4.1 of [RFC8641].
 
 
 ### Normative References
@@ -99,7 +99,7 @@ The schema from the schema registry is being used to define the times series dat
 * [draft-ietf-netmod-yang-module-versioning] 
   https://datatracker.ietf.org/doc/html/draft-ietf-netmod-yang-module-versioning
 
-* [YANG xpath and version notification header]
+* [YANG XPath and version notification header]
   https://github.com/netconf-wg/netconf-next/issues/17
 
 * [RFC6022]  YANG Module for NETCONF Monitoring
