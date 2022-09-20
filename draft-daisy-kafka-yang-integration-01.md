@@ -4,17 +4,26 @@ With the introduction of YANG [RFC7950] as a data modelling language in the netw
 
 A message broker enables real time data exchange among different Data Mesh domains. A schema registry ensure that the producer and consumer can learn from each other the schema and version for each message outband. Confluent [Apache Kafka] message broker supports custom data serialization. Since April 2020, Confluent extended their [Schema Registry] to be pluggable. Supporting besides AVRO (JSON and binary) also JSON and Protobuf natively. Described in [SR Blog Post], [SR Protobuf Provider Plugin], [Protobuf Serializer/Derializer], [Protobuf Serde for Kafka Streams] and [Protobuf Connect Converter].
 
-With [draft-ietf-netconf-udp-notif] and [draft-ietf-netconf-https-notif] two proposed standards at the NETCONF working group which supports configured YANG push subscriptions are in progress. [draft-ietf-netconf-https-notif] supports YANG push notification messages according to [RFC8639] and application/yang-data+json and application/yang-data+xml [Media Types] for encoding. [draft-ietf-netconf-https-notif], driven by Unyte, supports YANG push notification messages according to [RFC8641] and application/yang-data+json, application/yang-data+xml and application/yang-data+cbor for encoding.
+With [draft-ietf-netconf-udp-notif] and [draft-ietf-netconf-https-notif] two proposed standards at the NETCONF working group which supports configured YANG push subscriptions are in progress. [draft-ietf-netconf-https-notif] supports YANG push notification messages according to [RFC8639] and application/yang-data+json and application/yang-data+xml [Media Types] for encoding. [draft-ietf-netconf-https-notif], supports YANG push notification messages according to [RFC8641] and application/yang-data+json, application/yang-data+xml and application/yang-data+cbor for encoding.
 
-The YANG push notification message described in [RFC8641] contains a subscription id for each message as meta data. Referencing the subscribed XPath, a subsection of a YANG module. The YANG subscription id is being defined when a new XPath is subscribed to. Without this meta data, the YANG push receiver (YANG push data-collection) is unable to determine which YANG module matches the JSON/XML/CBOR encoded message today.
+The YANG push notification message described in [RFC8641] contains a subscription id for each message as metadata. Referencing the subscribed XPath, a subsection of a YANG module. The YANG subscription id is being defined when a new XPath is subscribed to. Without this metadata, the YANG push receiver (YANG push data-collection) is unable to determine which YANG module matches the JSON/XML/CBOR encoded message today.
 
-With [draft-ietf-netmod-yang-versioning-reqs] YANG versioning requirements have been defined and with [draft-ietf-netmod-yang-module-versioning] a YANG versioning handling has been proposed. This needs to be carried on to YANG push into the notification header [YANG XPath and version notification header] and also into the YANG push subscription [RFC8641].
+With [draft-ietf-netmod-yang-versioning-reqs] YANG versioning requirements have been defined and with [draft-ietf-netmod-yang-module-versioning] a YANG versioning handling has been proposed. This needs to be carried on to YANG push into the notification header [draft-tgraf-netconf-yang-notifications-versioning] and also into the YANG push subscription [RFC8641].
 
 An [Apache Kafka] topic supports multiple subjects. Each subject maps to a dedicated schema id in the schema registry [Schema Registry Overview]. A YANG push receiver IPv4/6 address and L4 port maps 1:1 to an Apache Kafka topic.
 
-In this document we describe how Confluent's [Apache Kafka] data serialization and [Schema Registry], the native Confluent Kafka producer and consumer, the time series data base ingestion and the [pmacct] pmtelemetryd YANG push receiver needs to be extended to enable automated data onboarding.
+In this document we describe how Confluent's [Apache Kafka] data serialization and [Schema Registry], the native Confluent Kafka producer and consumer, the time series data base ingestion and the [pmacct] pmtelemetryd YANG push receiver needs to be extended to enable automated data onboarding while preserving the data semantic along the chain.
 
 ![alt text](draft-daisy-kafka-yang-integration-01-1.png "Overview")
+
+
+## Aim
+
+With the establishment of a bounded context (standardized interface) between operational metrics and analytical application, we meet the following project goals
+
+* New YANG push metrics are visible in the time series database within minutes without manual intervention
+* New analytics components, regardless which network or analytics vendor provides if, can be integrated seamlessly
+* Enabling a digital twin for a closed loop operated network
 
 
 ## Status of this memo
@@ -28,7 +37,7 @@ The [pmacct] YANG push receiver needs to be extended to read
 
 * From YANG push notification header, the YANG XPath and version
 * From YANG push notification header, the subscription id
-* From the JSON payload, the sensor-path meta data
+* From the JSON payload, the vendor specific sensor-path metadata
 
 To determine which YANG module and version for the JSON/CBOR payload in the YANG push notification message. 
 
@@ -99,8 +108,8 @@ The schema from the schema registry is being used to define the times series dat
 * [draft-ietf-netmod-yang-module-versioning] 
   https://datatracker.ietf.org/doc/html/draft-ietf-netmod-yang-module-versioning
 
-* [YANG XPath and version notification header]
-  https://github.com/netconf-wg/netconf-next/issues/17
+* [draft-tgraf-netconf-yang-notifications-versioning]
+  https://github.com/graf3net/draft-tgraf-netconf-yang-notifications-versioning
 
 * [RFC6022]  YANG Module for NETCONF Monitoring
   https://datatracker.ietf.org/doc/html/rfc6022.html
