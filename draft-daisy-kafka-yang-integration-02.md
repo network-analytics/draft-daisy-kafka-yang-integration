@@ -75,28 +75,28 @@ The schema from the schema registry is being used to define the times series dat
 
 ## Project Team
 
-Christoph Schubert, Senior Solutions Architect at Confluent, https://www.linkedin.com/in/christophschubert/
-Senad Jukic, Senior Solutions Engineer at Confluent, https://www.linkedin.com/in/senad-jukic/
-Perry Krol, Head of Solutions Engineering EMEA at Confluent, https://www.linkedin.com/in/perrykrol/
-Paolo Lucente, Network Analytics Architect at NTT, https://www.linkedin.com/in/plucente/
-Diego R. Lopez, Senior Technology Expert at Telefonica I+D, https://www.linkedin.com/in/dr2lopez/
-Ignacio Dominguez Martinez-Casanueva, Technology Exploration and Standards at Telefonica, https://www.linkedin.com/in/ignacio-dominguez-martinez-casanueva-3b8b6ab2/
-Daniel Voyer, Technical Fellow at Bell Canada, https://www.linkedin.com/in/daniel-voyer-52a11414/
-Joe Clarke, Chair at OPSAWG IETF and Distinguished Services Engineer at Cisco Systems, https://www.linkedin.com/in/joeclarke2/
-Benoit Claise, Network Automation CTO at Huawei, https://www.linkedin.com/in/benoit-claise/
-Michael Mackey, Leader Of The SDN Automation Research Team at Huawei Technologies, https://www.linkedin.com/in/mikemackey/
-Olga Havel, Technical Expert & Research Team Leader at Huawei Ireland Research Center, https://www.linkedin.com/in/olgahavel/
-Jean Quilbeuf, Senior Software R&D Engineer at Huawei Ireland labs, https://www.linkedin.com/in/jean-quilbeuf/
-Eric Tschetter, Field CTO at Imply, https://www.linkedin.com/in/cheddar/
-Dean Sheehan, Field CTO at InfluxData, https://www.linkedin.com/in/dsheehan/
-Pierre Francois, Head of Research at INSA Lyon, https://www.linkedin.com/in/pierre-fran%C3%A7ois-2280901/
-Alex Huang Feng, R&D Researcher at INSA Lyon, https://www.linkedin.com/in/ahuangfeng/
-Zhuoyao Lin from Institut Polytechnique de Paris, Intern at Swisscom and Huawei Research Center Dublin, https://www.linkedin.com/in/zhuoyao-lin-6683b1221/
-Urs Baumann, Network Automation and Research Engineer at OST Rapperswil, https://www.linkedin.com/in/ubaumannch/
-Marco Tollini, Data and DevOps Engineer at Swisscom, https://www.linkedin.com/in/marco-tollini/
-Ahmed Elhassany, Data and Software Engineer at Swisscom, https://www.linkedin.com/in/ahassany/
-Uwe Storbeck, Senior Software Engineer at Swisscom
-Thomas Graf, Distinguished Network Engineer and Network Analytics Architect at Swisscom, https://www.linkedin.com/in/thomas-graf-25212516a/
+* Christoph Schubert, Senior Solutions Architect at Confluent, https://www.linkedin.com/in/christophschubert/
+* Senad Jukic, Senior Solutions Engineer at Confluent, https://www.linkedin.com/in/senad-jukic/
+* Perry Krol, Head of Solutions Engineering EMEA at Confluent, https://www.linkedin.com/in/perrykrol/
+* Paolo Lucente, Network Analytics Architect at NTT, https://www.linkedin.com/in/plucente/
+* Diego R. Lopez, Senior Technology Expert at Telefonica I+D, https://www.linkedin.com/in/dr2lopez/
+* Ignacio Dominguez Martinez-Casanueva, Technology Exploration and Standards at Telefonica, * https://www.linkedin.com/in/ignacio-dominguez-martinez-casanueva-3b8b6ab2/
+* Daniel Voyer, Technical Fellow at Bell Canada, https://www.linkedin.com/in/daniel-voyer-52a11414/
+* Joe Clarke, Chair at OPSAWG IETF and Distinguished Services Engineer at Cisco Systems, * https://www.linkedin.com/in/joeclarke2/
+* Benoit Claise, Network Automation CTO at Huawei, https://www.linkedin.com/in/benoit-claise/
+* Michael Mackey, Leader Of The SDN Automation Research Team at Huawei Technologies, https://www.linkedin.com/in/mikemackey/
+* Olga Havel, Technical Expert & Research Team Leader at Huawei Ireland Research Center, https://www.linkedin.com/in/olgahavel/
+* Jean Quilbeuf, Senior Software R&D Engineer at Huawei Ireland labs, https://www.linkedin.com/in/jean-quilbeuf/
+* Eric Tschetter, Field CTO at Imply, https://www.linkedin.com/in/cheddar/
+* Dean Sheehan, Field CTO at InfluxData, https://www.linkedin.com/in/dsheehan/
+* Pierre Francois, Head of Research at INSA Lyon, https://www.linkedin.com/in/pierre-fran%C3%A7ois-2280901/
+* Alex Huang Feng, R&D Researcher at INSA Lyon, https://www.linkedin.com/in/ahuangfeng/
+* Zhuoyao Lin from Institut Polytechnique de Paris, Intern at Swisscom and Huawei Research Center Dublin, https://www.linkedin.com/in/zhuoyao-lin-6683b1221/
+* Urs Baumann, Network Automation and Research Engineer at OST Rapperswil, https://www.linkedin.com/in/ubaumannch/
+* Marco Tollini, Data and DevOps Engineer at Swisscom, https://www.linkedin.com/in/marco-tollini/
+* Ahmed Elhassany, Data and Software Engineer at Swisscom, https://www.linkedin.com/in/ahassany/
+* Uwe Storbeck, Senior Software Engineer at Swisscom
+* Thomas Graf, Distinguished Network Engineer and Network Analytics Architect at Swisscom, https://www.linkedin.com/in/thomas-graf-25212516a/
 
 
 ## Project Milestones
