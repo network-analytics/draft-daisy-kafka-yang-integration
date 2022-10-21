@@ -39,11 +39,15 @@ The [pmacct] YANG push receiver needs to be extended to read
 * From YANG push notification header, the subscription id as specified in Section 3.6 of [RFC8641]
 * From the JSON payload, the vendor specific sensor-path metadata
 
+by developing a new libyangpush library and integrate it into [pmacct].
+
 To determine which YANG module and version for the JSON/CBOR payload in the YANG push notification message.
 
-If for that YANG module and version the Confluent schema ID is not cached yet, then a <get-schema> NETCONF request as defined in section 3.1 of [RFC6022] needs to be performed to the IPv4/6 address where the YANG push message is being originated from to obtain the YANG schema. Once obtained, the YANG schema needs to be posted through a REST API to the Confluent Schema Registry [Schema Registry] and the Confluent Schema ID in return needs to be used for Kafka serialization with [libserdes].
+If for that YANG module and version the Confluent schema ID is not cached yet, then a <get-schema> NETCONF request as defined in section 3.1 of [RFC6022] by leveraging the [libnetconf2] library needs to be performed to the IPv4/6 address where the YANG push message is being originated from to obtain the YANG schema. Once obtained, the YANG schema needs to be posted through a REST API to the Confluent Schema Registry [Schema Registry] and the Confluent Schema ID in return needs to be used for Kafka serialization with [libserdes].
 
 At present it is unclear, when CBOR encoding is performed at the YANG push publisher, wherever the notification message described in RFC 8641 is being encoded in CBOR or remain JSON encoded. When CBOR encoding is performed at YANG push publisher and the notification message would be encoded in CBOR as well, the YANG push receiver would need to deserialize the message to determine the YANG XPath and version. For this purpose, the [libcbor] library could be used.
+
+This activity is planned as part of a [YANG push Data Collection integration Internship] with Zhuoyao Lin from the Institut Polytechnique de Paris.
 
 
 ## YANG schema registry
@@ -139,6 +143,9 @@ The schema from the schema registry is being used to define the times series dat
 * [libcbor] libcbor
   https://github.com/PJK/libcbor
 
+* [libnetconf2] libnetconf2 – The NETCONF protocol library
+  https://github.com/CESNET/libnetconf2
+
 * [draft-ietf-netmod-yang-versioning-reqs]
   https://datatracker.ietf.org/doc/html/draft-ietf-netmod-yang-versioning-reqs
 
@@ -146,7 +153,7 @@ The schema from the schema registry is being used to define the times series dat
   https://datatracker.ietf.org/doc/html/draft-ietf-netmod-yang-module-versioning
 
 * [draft-tgraf-netconf-yang-notifications-versioning]
-  https://github.com/graf3net/draft-tgraf-netconf-yang-notifications-versioning
+  https://datatracker.ietf.org/doc/html/draft-tgraf-netconf-yang-notifications-versioning
 
 * [RFC6022]  YANG Module for NETCONF Monitoring
   https://datatracker.ietf.org/doc/html/rfc6022.html
@@ -156,6 +163,9 @@ The schema from the schema registry is being used to define the times series dat
 
 * [Confluent Compatibility Checks] Confluent Schema Compatibility Checks
   https://docs.confluent.io/platform/current/schema-registry/serdes-develop/index.html#sr-serdes-schemas-compatibility-checks
+
+* [YANG push Data Collection integration Internship] with Zhuoyao Lin from the Institut Polytechnique de Paris
+  https://github.com/graf3net/draft-daisy-kafka-yang-integration/blob/main/2022-internshiptimeline-yang-data-collection-kafka-integration.pdf
 
 
 ### Informative References
