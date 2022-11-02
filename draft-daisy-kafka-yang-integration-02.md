@@ -114,9 +114,9 @@ The schema from the schema registry is being used to define the times series dat
 ## IETF 115 Agenda
 
 * Friday November 4th 16:00-17:30 - Meet new parties which have interest in this project at the Confluent London office at the 1 Bedford St. Remark: We might move the meeting to 17:00 or 18:00.
-* Sunday November 5th 16:00-19:00 - For our colleagues from the Data Analytics area, take part of the official IETF 115 newcomers social event and the welcome reception.
-* Sunday November 5th 19:30-23:00 - You are invited to a dinner where you will meet all the project participants for the very first time. Restaurant and address will be communicated.
-* Monday November 6th 13:30-14:30 - The official project kickoff takes place at the IETF 115 venue in the room Richmond 6. In person over remote participation is preferred.
+* Sunday November 6th 16:00-19:00 - For our colleagues from the Data Analytics area, take part of the official IETF 115 newcomers social event and the welcome reception.
+* Sunday November 6th 19:30-23:00 - You are invited to a dinner where you will meet all the project participants for the very first time. Restaurant and address will be communicated.
+* Monday November 7th 13:30-14:30 - The official project kickoff takes place at the IETF 115 venue in the room Richmond 6. In person over remote participation is preferred.
 
 
 ### Normative References
