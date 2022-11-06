@@ -4,7 +4,9 @@ With the introduction of YANG [RFC7950] as a data modelling language in the netw
 
 A message broker enables real time data exchange among different Data Mesh domains. A schema registry ensure that the producer and consumer can learn from each other the schema and version for each message outband. Confluent [Apache Kafka] message broker supports custom data serialization. Since April 2020, Confluent extended their [Schema Registry] to be pluggable. Supporting besides AVRO (JSON and binary) also JSON and Protobuf natively. Described in [SR Blog Post], [SR Protobuf Provider Plugin], [Protobuf Serializer/Derializer], [Protobuf Serde for Kafka Streams] and [Protobuf Connect Converter].
 
-With [draft-ietf-netconf-udp-notif] and [draft-ietf-netconf-https-notif] two proposed standards at the NETCONF working group which supports configured YANG push subscriptions are in progress. [draft-ietf-netconf-https-notif] supports YANG push notification messages according to [RFC8639] and application/yang-data+json and application/yang-data+xml [Media Types] for encoding. [draft-ietf-netconf-https-notif], supports YANG push notification messages according to [RFC8641] and application/yang-data+json, application/yang-data+xml and application/yang-data+cbor for encoding.
+With [draft-ietf-netconf-udp-notif] and [draft-ietf-netconf-https-notif] two proposed standards at the NETCONF working group which supports configured YANG push subscriptions are in progress. [draft-ietf-netconf-udp-notif] is aimed for exporting accounting metrics at scale without back pressure from YANG push receiver to publisher and supporting with [draft-ietf-netconf-distributed-notif] export directly from network processors. While [draft-ietf-netconf-https-notif] supports back pressure and therefore works well for state changes.
+
+[draft-ietf-netconf-https-notif] supports YANG push notification messages according to [RFC8639] and application/yang-data+json and application/yang-data+xml [Media Types] for encoding. [draft-ietf-netconf-https-notif], supports YANG push notification messages according to [RFC8641] and application/yang-data+json, application/yang-data+xml and application/yang-data+cbor for encoding.
 
 The YANG push notification message described in [RFC8641] contains a subscription id for each message as metadata. Referencing the subscribed XPath, a subsection of a YANG module. The YANG subscription id is being defined when a new XPath is subscribed to. Without this metadata, the YANG push receiver (YANG push data-collection) is unable to determine which YANG module matches the JSON/XML/CBOR encoded message today.
 
@@ -207,6 +209,9 @@ The schema from the schema registry is being used to define the times series dat
 
 * [draft-ietf-netconf-udp-notif]] UDP-based Transport for Configured Subscriptions
   https://datatracker.ietf.org/doc/html/draft-ietf-netconf-udp-notif
+
+* [draft-ietf-netconf-distributed-notif] Subscription to Distributed Notifications
+  https://datatracker.ietf.org/doc/html/draft-ietf-netconf-distributed-notif
 
 * [draft-ietf-netconf-https-notif]  An HTTPS-based Transport for YANG Notifications
   https://datatracker.ietf.org/doc/html/draft-ietf-netconf-https-notif
