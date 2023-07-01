@@ -128,7 +128,7 @@ The schema from the schema registry is being used to define the times series dat
 * Monday July 24th 17:00 - 17:45 - YANG/Kafka Side Meeting - Present current state of Data Mesh integration to interested operators, vendors and academia
 * Monday July 24th 17:45 - 18:30 - Digital Map Side Meeting -  Kickoff the needs and discussion on modeling the Digital Map based on RFC 8345
 * Monday July 24th 18:30 - 20:00 - Dedicated reception organized by the IETF LLC to facility the exchange between the data industry and IETF
-* Tuesday July 25th 09:30 - 11:30 - NETCONF WG - Updates on on draft-ietf-netconf-udp-notif, draft-ietf-netconf-distributed-notif and draft-ietf-netconf-yang-notifications-versioning
+* Thursday July 27th 09:30 - 11:30 - NETCONF WG - Updates on on draft-ietf-netconf-udp-notif, draft-ietf-netconf-distributed-notif and draft-ietf-netconf-yang-notifications-versioning
 
 
 ### Normative References
