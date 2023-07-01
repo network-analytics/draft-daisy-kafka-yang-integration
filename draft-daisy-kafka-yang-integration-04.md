@@ -14,7 +14,7 @@ With [draft-ahuang-netconf-notif-yang] the YANG module for netconf notifications
 
 With [draft-tgraf-yang-push-observation-time] the YANG Notifications is extended to accomondate network observation timestamping. Depending on subscription type, for periodical subscription it is observation-time and for on-change subscriptions it is state-changed-observation-time. With network observation and notificatio message timestamping we are able to determine the end to end delay accross messaging system and ensure with observation-time timestamping and anchor-time subscription configuration that the timeseries allign with the timeseries database time bins.
 
-With [draft-ietf-netmod-yang-versioning-reqs] YANG versioning requirements have been defined and with [draft-ietf-netmod-yang-module-versioning] a YANG versioning handling has been proposed. This needs to be carried on to YANG push into the notification header [draft-ietf-netconf-yang-notifications-versioning] and also into the YANG push subscription [RFC8641].
+With [draft-ietf-netmod-yang-versioning-reqs] YANG versioning requirements have been defined and with [draft-ietf-netmod-yang-module-versioning] a YANG versioning handling has been proposed. This needs to be carried on to YANG push into the notification header [draft-tgraf-netconf-yang-notifications-versioning] and also into the YANG push subscription [RFC8641].
 
 An [Apache Kafka] topic supports multiple subjects. Each subject maps to a dedicated schema id in the schema registry [Schema Registry Overview]. A YANG push receiver IPv4/6 address and L4 port maps 1:1 to an Apache Kafka topic.
 
@@ -42,7 +42,7 @@ Project Updateat IETF 116 in Yokohama.
 
 The [pmacct] YANG push receiver needs to be extended to read
 
-* From YANG push subscription state change notification header, the YANG XPath/sub-tree and version as specified in [draft-ietf-netconf-yang-notifications-versioning] and cache it for a subscription id and SysName s specified in [draft-tgraf-netconf-notif-sequencing] or transport IPv4/6 address.
+* From YANG push subscription state change notification header, the YANG XPath/sub-tree and version as specified in [draft-tgraf-netconf-yang-notifications-versioning] and cache it for a subscription id and SysName s specified in [draft-tgraf-netconf-notif-sequencing] or transport IPv4/6 address.
 * From YANG push notification push-update header, the subscription id as specified in Section 3.6 of [RFC8641] performs a lookup in the previously cached YANG push subscription state change notification data.
 * From the JSON payload, the vendor specific sensor-path metadata
 
@@ -86,19 +86,21 @@ The schema from the schema registry is being used to define the times series dat
 
 ## Project Team
 
+* Perry Krol, Head of Solutions Engineering EMEA at Confluent, https://www.linkedin.com/in/perrykrol/
 * Christoph Schubert, Senior Solutions Architect at Confluent, https://www.linkedin.com/in/christophschubert/
 * Senad Jukic, Senior Solutions Engineer at Confluent, https://www.linkedin.com/in/senad-jukic/
-* Perry Krol, Head of Solutions Engineering EMEA at Confluent, https://www.linkedin.com/in/perrykrol/
 * Paolo Lucente, Network Analytics Architect at NTT, https://www.linkedin.com/in/plucente/
 * Diego R. Lopez, Senior Technology Expert at Telefonica I+D, https://www.linkedin.com/in/dr2lopez/
-* Ignacio Dominguez Martinez-Casanueva, Technology Exploration and Standards at Telefonica, * https://www.linkedin.com/in/ignacio-dominguez-martinez-casanueva-3b8b6ab2/
+* Ignacio Dominguez Martinez-Casanueva, Technology Exploration and Standards at Telefonica, https://www.linkedin.com/in/ignacio-dominguez-martinez-casanueva-3b8b6ab2/
 * Daniel Voyer, Technical Fellow at Bell Canada, https://www.linkedin.com/in/daniel-voyer-52a11414/
-* Joe Clarke, Chair at OPSAWG IETF and Distinguished Services Engineer at Cisco Systems, * https://www.linkedin.com/in/joeclarke2/
+* Mohammad Sharifan, Senior Enterprise Architect, https://www.linkedin.com/in/mohammadsharifan/
+* Robert Wilton, Operations and Management Area Director at Internet Engineering Task Force, https://www.linkedin.com/in/rgwilton/
 * Benoit Claise, Network Automation CTO at Huawei, https://www.linkedin.com/in/benoit-claise/
 * Michael Mackey, Leader Of The SDN Automation Research Team at Huawei Technologies, https://www.linkedin.com/in/mikemackey/
 * Olga Havel, Technical Expert & Research Team Leader at Huawei Ireland Research Center, https://www.linkedin.com/in/olgahavel/
 * Jean Quilbeuf, Senior Software R&D Engineer at Huawei Ireland labs, https://www.linkedin.com/in/jean-quilbeuf/
 * Eric Tschetter, Field CTO at Imply, https://www.linkedin.com/in/cheddar/
+* Christoph Wurm, Solution Architect, https://www.linkedin.com/in/cwurm/
 * Dean Sheehan, Field CTO at InfluxData, https://www.linkedin.com/in/dsheehan/
 * Pierre Francois, Head of Research at INSA Lyon, https://www.linkedin.com/in/pierre-fran%C3%A7ois-2280901/
 * Alex Huang Feng, R&D Researcher at INSA Lyon, https://www.linkedin.com/in/ahuangfeng/
@@ -120,9 +122,13 @@ The schema from the schema registry is being used to define the times series dat
 
 ## IETF 116 Agenda
 
-* Sunday March 26th 10:00-12:00 - Present current state of Data Mesh integration to interested operators and vendors
-* Monday Maech 27th 13:00-15:00 -  Updates and Intrdocution on draft-ietf-netconf-udp-notif, draft-ietf-netconf-distributed-notif, draft-ahuang-netconf-notif-yang, draft-tgraf-netconf-notif-sequencing, draft-tgraf-yang-push-observation-time and draft-ietf-netconf-yang-notifications-versioning
-* Wednesday March 29th 12:00-12:45 - Official side meeting with all parties to update published draft documents, YANG push mockup implementation, workflow description and schema registry development.
+* Saturday July 22nd 09:30 - 20:30 - IETF Hackathon - 3 Network Telemetry projects (https://wiki.ietf.org/en/meeting/117/hackathon)
+* Sunday July 23th 09:30 - 17:00 - IETF Hackathon - 3 Network Telemetry projects (https://wiki.ietf.org/en/meeting/117/hackathon)
+* Monday July 24th 15:30 - 17:00 - ANRW @ IRTF - Daisy: Practical Anomaly Detection in large BGP/MPLS and BGP/SRv6 VPN Networks (https://irtf.org/anrw/2023/program.html)
+* Monday July 24th 17:00 - 17:45 - YANG/Kafka Side Meeting - Present current state of Data Mesh integration to interested operators, vendors and academia
+* Monday July 24th 17:45 - 18:30 - Digital Map Side Meeting -  Kickoff the needs and discussion on modeling the Digital Map based on RFC 8345
+* Monday July 24th 18:30 - 20:00 - Dedicated reception organized by the IETF LLC to facility the exchange between the data industry and IETF
+* Tuesday July 25th 09:30 - 11:30 - NETCONF WG - Updates on on draft-ietf-netconf-udp-notif, draft-ietf-netconf-distributed-notif and draft-ietf-netconf-yang-notifications-versioning
 
 
 ### Normative References
@@ -151,8 +157,8 @@ The schema from the schema registry is being used to define the times series dat
 * [draft-tgraf-yang-push-observation-time] Support of Network Observation Timestamping in YANG Notifications
   https://datatracker.ietf.org/doc/html/draft-tgraf-yang-push-observation-time
   
-* [draft-ietf-netconf-yang-notifications-versioning] Support of Versioning in YANG Notifications Subscription
-  https://datatracker.ietf.org/doc/html/draft-ietf-netconf-yang-notifications-versioning
+* [draft-tgraf-netconf-yang-notifications-versioning] Support of Versioning in YANG Notifications Subscription
+  https://datatracker.ietf.org/doc/html/draft-tgraf-netconf-yang-notifications-versioning
 
 * [Apache Kafka] Confluent Apache Kafka
   https://github.com/apache/kafka
@@ -175,6 +181,8 @@ The schema from the schema registry is being used to define the times series dat
 * [draft-ietf-netmod-yang-module-versioning] 
   https://datatracker.ietf.org/doc/html/draft-ietf-netmod-yang-module-versioning
 
+* [draft-tgraf-netconf-yang-notifications-versioning]
+  https://datatracker.ietf.org/doc/html/draft-tgraf-netconf-yang-notifications-versioning
 
 * [RFC6022]  YANG Module for NETCONF Monitoring
   https://datatracker.ietf.org/doc/html/rfc6022.html
