@@ -120,7 +120,7 @@ The schema from the schema registry is being used to define the times series dat
 * IETF 117 San Francisco - 118 Prague, Imply Druid YANG JSON Data Ingestion Specification Transformation code development at Imply.
 
 
-## IETF 116 Agenda
+## IETF 117 Agenda
 
 * Saturday July 22nd 09:30 - 20:30 - IETF Hackathon - 3 Network Telemetry projects (https://wiki.ietf.org/en/meeting/117/hackathon)
 * Sunday July 23th 09:30 - 17:00 - IETF Hackathon - 3 Network Telemetry projects (https://wiki.ietf.org/en/meeting/117/hackathon)
