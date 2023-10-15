@@ -100,7 +100,7 @@ The schema from the schema registry is being used to define the times series dat
 * Olga Havel, Technical Expert & Research Team Leader at Huawei Ireland Research Center, https://www.linkedin.com/in/olgahavel/
 * Jean Quilbeuf, Senior Software R&D Engineer at Huawei Ireland labs, https://www.linkedin.com/in/jean-quilbeuf/
 * Eric Tschetter, Field CTO at Imply, https://www.linkedin.com/in/cheddar/
-* Christoph Wurm, Solution Architect, https://www.linkedin.com/in/cwurm/
+* Christoph Wurm, Solution Architect at Clickhouse, https://www.linkedin.com/in/cwurm/
 * Dean Sheehan, Field CTO at InfluxData, https://www.linkedin.com/in/dsheehan/
 * Pierre Francois, Head of Research at INSA Lyon, https://www.linkedin.com/in/pierre-fran%C3%A7ois-2280901/
 * Alex Huang Feng, R&D Researcher at INSA Lyon, https://www.linkedin.com/in/ahuangfeng/
