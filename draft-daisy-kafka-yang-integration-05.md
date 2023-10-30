@@ -120,7 +120,11 @@ The schema from the schema registry is being used to define the times series dat
 
 ## IETF 118 Agenda
 
+* Saturday November 4th 09:30 - 20:30 - IETF Hackathon - 2 Network Telemetry projects (https://wiki.ietf.org/en/meeting/118/hackathon)
+* Sunday July 23th 09:30 - 16:00 - IETF Hackathon - 2 Network Telemetry projects (https://wiki.ietf.org/en/meeting/118/hackathon)
 * Tuesday November 7th 09:30 - 11:30 - NETCONF WG - Updates on on draft-ietf-netconf-udp-notif, draft-ietf-netconf-distributed-notif, draft-tgraf-netconf-notif-sequencing and draft-ietf-netconf-yang-notifications-versioning
+* Tuesday November 7th 15:30 - 16:00 - YANG/Kafka Side Meeting - Updates of Data Mesh integration to interested operators, vendors and academia
+* Tuesday November 7th 16:00 - 16:30 - Digital Map Side Meeting -  Updates and discussion on modeling the Digital Map based on RFC 8345
 
 
 ### Normative References
