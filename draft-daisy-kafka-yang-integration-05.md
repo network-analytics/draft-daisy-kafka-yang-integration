@@ -99,6 +99,8 @@ The schema from the schema registry is being used to define the times series dat
 * Michael Mackey, Leader Of The SDN Automation Research Team at Huawei Technologies, https://www.linkedin.com/in/mikemackey/
 * Olga Havel, Technical Expert & Research Team Leader at Huawei Ireland Research Center, https://www.linkedin.com/in/olgahavel/
 * Jean Quilbeuf, Senior Software R&D Engineer at Huawei Ireland labs, https://www.linkedin.com/in/jean-quilbeuf/
+* Samuel Gauthier, Computer Networking R&D Engineer, 6Wind, https://www.linkedin.com/in/samuel-gauthier-2662842/
+* Jeremie Leska, Computer Networking R&D Engineer, 6Wind
 * Eric Tschetter, Field CTO at Imply, https://www.linkedin.com/in/cheddar/
 * Christoph Wurm, Solution Architect at Clickhouse, https://www.linkedin.com/in/cwurm/
 * Dean Sheehan, Field CTO at InfluxData, https://www.linkedin.com/in/dsheehan/
